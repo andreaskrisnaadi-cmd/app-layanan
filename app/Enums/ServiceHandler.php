@@ -4,16 +4,20 @@ namespace App\Enums;
 
 enum ServiceHandler: string
 {
-    case GENERIC = 'generic';
-    case DTSEN = 'dtsen';
-    case PBI = 'pbi';
+    case Generic = 'generic';
+    case Dtsen = 'dtsen';
+    case Pbi = 'pbi';
+
+    public const GENERIC = self::Generic;
+    public const DTSEN = self::Dtsen;
+    public const PBI = self::Pbi;
 
     public function label(): string
     {
         return match ($this) {
-            self::GENERIC => 'Layanan Umum',
-            self::DTSEN => 'Surat Keterangan DTSEN',
-            self::PBI => 'Reaktivasi KIS / PBI-JK',
+            self::Generic => 'Layanan Umum',
+            self::Dtsen => 'Surat Keterangan DTSEN',
+            self::Pbi => 'Reaktivasi KIS / PBI-JK',
         };
     }
 }

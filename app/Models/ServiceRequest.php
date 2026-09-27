@@ -102,4 +102,9 @@ class ServiceRequest extends Model
     {
         return $this->morphMany(Disposition::class, 'dispositionable');
     }
+
+    public function approvals(): MorphMany
+    {
+        return $this->morphMany(Approval::class, 'approvable');
+    }
 }

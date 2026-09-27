@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,6 +42,18 @@ class RehabilitationCase extends Model
     public function client(): BelongsTo
     {
         return $this->belongsTo(Client::class);
+    }
+
+    public function clientCategory(): HasOneThrough
+    {
+        return $this->hasOneThrough(
+            ClientCategory::class,
+            Client::class,
+            'id',
+            'id',
+            'client_id',
+            'client_category_id'
+        );
     }
 
     public function serviceRequest(): BelongsTo

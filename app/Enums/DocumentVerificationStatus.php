@@ -4,16 +4,20 @@ namespace App\Enums;
 
 enum DocumentVerificationStatus: string
 {
-    case PENDING = 'pending';
-    case VALID = 'valid';
-    case REVISION_NEEDED = 'revision_needed';
+    case Pending = 'pending';
+    case Valid = 'valid';
+    case RevisionNeeded = 'revision_needed';
+
+    public const PENDING = self::Pending;
+    public const VALID = self::Valid;
+    public const REVISION_NEEDED = self::RevisionNeeded;
 
     public function label(): string
     {
         return match ($this) {
-            self::PENDING => 'Menunggu Verifikasi',
-            self::VALID => 'Sesuai / Valid',
-            self::REVISION_NEEDED => 'Perlu Perbaikan',
+            self::Pending => 'Menunggu Verifikasi',
+            self::Valid => 'Sesuai / Valid',
+            self::RevisionNeeded => 'Perlu Perbaikan',
         };
     }
 }

@@ -4,22 +4,29 @@ namespace App\Enums;
 
 enum InformationCategory: string
 {
-    case PROGRAM = 'program';
-    case REHABILITATION = 'rehabilitation';
-    case DISABILITY = 'disability';
-    case ELDERLY = 'elderly';
-    case COMPLAINT = 'complaint';
-    case OTHER = 'other';
+    case Program = 'program';
+    case Rehabilitation = 'rehabilitation';
+    case Disability = 'disability';
+    case Elderly = 'elderly';
+    case Complaint = 'complaint';
+    case Other = 'other';
+
+    public const PROGRAM = self::Program;
+    public const REHABILITATION = self::Rehabilitation;
+    public const DISABILITY = self::Disability;
+    public const ELDERLY = self::Elderly;
+    public const COMPLAINT = self::Complaint;
+    public const OTHER = self::Other;
 
     public function label(): string
     {
         return match ($this) {
-            self::PROGRAM => 'Program Sosial',
-            self::REHABILITATION => 'Rehabilitasi Sosial',
-            self::DISABILITY => 'Disabilitas',
-            self::ELDERLY => 'Lanjut Usia',
-            self::COMPLAINT => 'Pengaduan',
-            self::OTHER => 'Lainnya',
+            self::Program => 'Program Sosial',
+            self::Rehabilitation => 'Rehabilitasi Sosial',
+            self::Disability => 'Disabilitas',
+            self::Elderly => 'Lanjut Usia',
+            self::Complaint => 'Pengaduan',
+            self::Other => 'Lainnya',
         };
     }
 }

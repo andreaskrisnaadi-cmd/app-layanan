@@ -4,16 +4,20 @@ namespace App\Enums;
 
 enum MinistryDecision: string
 {
-    case PENDING = 'pending';
-    case APPROVED = 'approved';
-    case REJECTED = 'rejected';
+    case Pending = 'pending';
+    case Approved = 'approved';
+    case Rejected = 'rejected';
+
+    public const PENDING = self::Pending;
+    public const APPROVED = self::Approved;
+    public const REJECTED = self::Rejected;
 
     public function label(): string
     {
         return match ($this) {
-            self::PENDING => 'Menunggu Keputusan',
-            self::APPROVED => 'Disetujui Kemensos',
-            self::REJECTED => 'Ditolak Kemensos',
+            self::Pending => 'Menunggu Keputusan',
+            self::Approved => 'Disetujui Kemensos',
+            self::Rejected => 'Ditolak Kemensos',
         };
     }
 }

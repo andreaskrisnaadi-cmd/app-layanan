@@ -32,6 +32,7 @@ class PbiReactivation extends Model
         'ministry_decision',
         'ministry_decided_at',
         'reactivated_date',
+        'is_stalled',
     ];
 
     protected function casts(): array
@@ -45,6 +46,7 @@ class PbiReactivation extends Model
             'ministry_decision' => MinistryDecision::class,
             'ministry_decided_at' => 'datetime',
             'reactivated_date' => 'date',
+            'is_stalled' => 'boolean',
         ];
     }
 

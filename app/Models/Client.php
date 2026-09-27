@@ -35,6 +35,11 @@ class Client extends Model
         return $this->belongsTo(ClientCategory::class, 'client_category_id');
     }
 
+    public function clientCategory(): BelongsTo
+    {
+        return $this->category();
+    }
+
     public function village(): BelongsTo
     {
         return $this->belongsTo(Village::class);

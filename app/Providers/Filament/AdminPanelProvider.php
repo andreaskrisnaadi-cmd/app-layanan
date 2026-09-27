@@ -28,8 +28,34 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->profile()
+            ->brandName('SAPA SOSIAL')
+            ->font('Inter')
+            ->databaseNotifications()
+            ->databaseNotificationsPolling('30s')
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Indigo,
+                'danger' => Color::Rose,
+                'warning' => Color::Amber,
+                'success' => Color::Emerald,
+                'info' => Color::Sky,
+            ])
+            ->sidebarCollapsibleOnDesktop()
+            ->navigationGroups([
+                \Filament\Navigation\NavigationGroup::make('Layanan Utama')
+                    ->icon('heroicon-o-clipboard-document-list'),
+                \Filament\Navigation\NavigationGroup::make('Rehabilitasi Sosial')
+                    ->icon('heroicon-o-heart'),
+                \Filament\Navigation\NavigationGroup::make('Pengaduan')
+                    ->icon('heroicon-o-megaphone'),
+                \Filament\Navigation\NavigationGroup::make('Informasi Publik')
+                    ->icon('heroicon-o-information-circle'),
+                \Filament\Navigation\NavigationGroup::make('Master Data')
+                    ->icon('heroicon-o-circle-stack')
+                    ->collapsed(),
+                \Filament\Navigation\NavigationGroup::make('Pengguna & Akses')
+                    ->icon('heroicon-o-users')
+                    ->collapsed(),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')

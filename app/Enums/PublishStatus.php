@@ -4,16 +4,20 @@ namespace App\Enums;
 
 enum PublishStatus: string
 {
-    case DRAFT = 'draft';
-    case PUBLISHED = 'published';
-    case ARCHIVED = 'archived';
+    case Draft = 'draft';
+    case Published = 'published';
+    case Archived = 'archived';
+
+    public const DRAFT = self::Draft;
+    public const PUBLISHED = self::Published;
+    public const ARCHIVED = self::Archived;
 
     public function label(): string
     {
         return match ($this) {
-            self::DRAFT => 'Draf',
-            self::PUBLISHED => 'Diterbitkan',
-            self::ARCHIVED => 'Diarsipkan',
+            self::Draft => 'Draf',
+            self::Published => 'Diterbitkan',
+            self::Archived => 'Diarsipkan',
         };
     }
 }
